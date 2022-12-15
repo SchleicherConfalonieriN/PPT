@@ -8,7 +8,7 @@ const Login = () =>{
 
     const [email,SetEmail] = useState('')
     const [password,SetPassword] = useState('');
-
+    const [tipo,SetTipo] = useState('');
 
     const create = async (e) =>{
         e.preventDefault()
@@ -28,6 +28,13 @@ return (
         <br></br>
         <label>Password</label>    
         <input type={"password"} value={password} onChange={(e)=> SetPassword(e.target.value)}></input>
+        <br></br>
+        <label>Tipo</label>    
+        <select  value={tipo} onChange={(e)=> SetTipo(e.target.value)}>
+        <option value="1" >Paciente</option>
+        <option value="2">Doctor</option>
+        <option value="3">Administrador</option>
+        </select>
         <br></br>
         <input type={"submit"}></input>
         </form>

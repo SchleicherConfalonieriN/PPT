@@ -2,6 +2,16 @@ import EspecialidadModel from "../models/EspecialidadesModel.js"
 
 
 
+//get all
+
+export const getAll = async (req,res) =>{
+    try{
+        const transactions = await EspecialidadeModel.findAll({}); 
+        res.json(transactions)
+    } catch(error){
+        res.json ({message :error.message})
+    }
+}
 
 
 
