@@ -1,7 +1,16 @@
 import ConsultorioModel from "../models/ConsultorioModel.js"
 
 
+//get all
 
+export const getAll = async (req,res) =>{
+    try{
+        const consultorio = await ConsultorioModel.findAll({}); 
+        res.json(consultorio)
+    } catch(error){
+        res.json ({message :error.message})
+    }
+}
 
 
 
@@ -9,6 +18,7 @@ import ConsultorioModel from "../models/ConsultorioModel.js"
 
 export const Register= async (req,res)=>{
     try {
+        console.log(req.body);
         await ConsultorioModel.create(req.body)
         res.json({"message":"consultorio registrado correctamente"})
     } catch (error) {

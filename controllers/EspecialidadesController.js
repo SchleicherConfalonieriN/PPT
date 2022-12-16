@@ -45,7 +45,7 @@ export const deleteEspecialidad = async (req, res) => {
 export const updateEspecialidad = async(req,res)=>{
         try{
             await EspecialidadModel.update(req.body,{ 
-                    where:{ id: req.body.id}}
+                    where:{ id: req.params.id}}
             )
             res.json("updated")
             } catch (error) {

@@ -9,8 +9,9 @@ const ConsultorioModel = db.define('consultorio',{
         autoIncrement: true,
         primaryKey: true
       },
-    Numero: {type: DataTypes.STRING,   
+    Numero: {type: DataTypes.INTEGER,   
         allowNull: false,
+        unique: true
     }
 }
 );

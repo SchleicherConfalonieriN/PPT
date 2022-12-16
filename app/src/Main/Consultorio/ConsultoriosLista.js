@@ -2,23 +2,23 @@ import axios from 'axios'
 import {useState,useEffect} from 'react'
 import React from 'react'
 import {Link} from 'react-router-dom';
-import Register from './CreateEspacialidad';
+import Register from './CreateConsultorio';
 
-const URL = 'http://localhost:8000/api/especialidad/';
-
-
+const URL = 'http://localhost:8000/api/consultorio/';
 
 
-const EspecialidadesLista =() =>{
 
-    const[especialidad, setEspecialidad] = useState([])
+
+const ConsultorioLista =() =>{
+
+    const[consultorio, setConsultorio] = useState([])
     useEffect (  () => {
 
-        getEspecialidad()
+        getconsultorio()
 
     },[])
 
-const getEspecialidad = async () =>{
+const getconsultorio = async () =>{
 
     const res = await axios.get(URL, {
         headers: {
@@ -28,11 +28,11 @@ const getEspecialidad = async () =>{
     )
     console.log(localStorage.getItem("apiData"));
     console.log(res.data);
-    setEspecialidad(res.data);
+    setConsultorio(res.data);
 }
 
 
-const deleteEspecialidad = async (id) => {
+const deleteconsultorio = async (id) => {
     await axios.delete(URL+id,{
         headers: {
         'user-token': localStorage.getItem("apiData")
@@ -40,23 +40,25 @@ const deleteEspecialidad = async (id) => {
       }
     
     )
-    getEspecialidad()
+    getconsultorio()
  }
 
 
 return (
 
     <div className="ListContainer">
-<h4>Listado de Especialidades</h4>
+<h4>Listado de consultorio</h4>
 <tr className='ListTitle'>
-<th>Nombre</th>
+<th>Numero</th>
+<th></th>
+<th></th>
 </tr>
 
-    {especialidad.map((mov,index) =>
+    {consultorio.map((mov,index) =>
     <tr>
-    <th className='Content' key={index}>{mov.Nombre}</th>
+    <th className='Content' key={index}>{mov.Numero}</th>
     <th><Link to={`./edit/${mov.id}`}><h4>Edit</h4></Link></th>
-    <th><button onClick={()=>deleteEspecialidad(mov.id)}>X</button></th>
+    <th><button onClick={()=>deleteconsultorio(mov.id)}>X</button></th>
     </tr>
     )
     }
@@ -68,4 +70,4 @@ return (
 )
 
 }
-export default EspecialidadesLista;
+export default ConsultorioLista;
