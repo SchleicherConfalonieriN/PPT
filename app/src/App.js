@@ -1,11 +1,13 @@
 import React from "react"
-
+import "./App.css"
 
 
 
 import Register from "./Main/User/CreateUser.js";
 import Login from "./Main/User/Login.js";
-import Administrador from "./Main/Home/Administrador";
+import Home from "./Main/Home/Home";
+import EspecialidadesLista from "./Main/Especialidades/EspecialidadesLista";
+import MedicosLista from "./Main/Listas/MedicosLista";
 import Paciente from "./Main/Home/Paciente";
 import Medico from "./Main/Home/Medico";
 
@@ -21,8 +23,9 @@ function App() {
       <Routes>
             <Route path='/' element={ <Login/>} />
             <Route path='/Register' element={ <Register/>} />
-            <Route path='/Medico' element={ <Medico/>} />
-            <Route path='/Administrador' element={ <Administrador/>} />
+            <Route path='/Home' element={ <Home/>} />
+            <Route path='/MedicosLista' element={ <MedicosLista/>} />
+            <Route path='/EspecialidadesLista' element={ <EspecialidadesLista/>} />
             <Route path='/Paciente' element={ <Paciente/>} />
            
       </Routes>

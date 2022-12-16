@@ -11,7 +11,12 @@ const CreateToken = (user) => {
         createdAt : moment().unix(),
         expiredAt : moment().add(5,'minutes').unix()
     };
-    return jwt.encode(payload,'frase secreta');
+
+    const res = {
+        token: jwt.encode(payload,'frase secreta'),
+        rol: user.Type
+    }
+    return res ;
 }
 
 

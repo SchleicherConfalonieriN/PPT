@@ -9,7 +9,8 @@ const Paciente = () =>{
 
     return (
     
-    <div className='PrimaryContainer'>
+    <div  className='PrimaryContainer'>
+        Este es el paciente
         <button>Mis Turnos</button>
         <button>Solicitar Turno</button>
         </div>)

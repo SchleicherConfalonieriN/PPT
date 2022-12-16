@@ -29,7 +29,7 @@ const getEspecialidad = async () =>{
 
 
 const deleteEspecialidad = async (id) => {
-    await axios.delete(URLd+id, {
+    await axios.delete(URL,{
         headers: {
         'user-token': JSON.parse(localStorage.getItem("apiData"))
         }
@@ -48,11 +48,11 @@ return (
 <th>Nombre</th>
 </tr>
 
-    {transaction.map((mov,index) =>
+    {especialidad.map((mov,index) =>
     <tr>
     <th className='Content' key={index}>{mov.Nombre}</th>
     <th><Link to={`/edit/${mov.id}`}><h4>Edit</h4></Link></th>
-    <th><button onClick={()=>deleteTransaction(mov.id)}>X</button></th>
+    <th><button onClick={()=>deleteEspecialidad(mov.id)}>X</button></th>
     </tr>
     )
     }

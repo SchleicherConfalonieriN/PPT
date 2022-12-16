@@ -1,4 +1,5 @@
 import React from 'react'
+import {Link} from 'react-router-dom';
 //import "./Home.css";
 
 
@@ -10,11 +11,12 @@ const Administrador = () =>{
     return (
     
     <div className='PrimaryContainer'>
-         <button>Especialidad</button>
-         <button>Doctores</button>
-         <button>Servicios</button>
-         <button>Colsultorios</button>
-      
+        <div className='listaOpciones'>
+        <Link to={'/EspecialidadesLista'}> <button>Especialidad</button></Link>
+        <Link to={'/MedicosLista'}><button>Medicos</button></Link>
+        <Link to={'/ServiciosLista'}><button>Servicios</button></Link>
+        <Link to={'/ColsultoriosLista'}><button> Colsultorios</button></Link>
+         </div>
         </div>)
 }
 
