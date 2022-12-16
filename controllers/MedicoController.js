@@ -6,9 +6,9 @@ import MedicoModel from "../models/MedicoModel.js"
 
 export const getAll = async (req,res) =>{
     try{
-        const turno = await MedicoModel.findAll({
+        const Medico = await MedicoModel.findAll({
         }); 
-        res.json(transactions)
+        res.json(Medico)
     } catch(error){
         res.json ({message :error.message})
     }
@@ -19,7 +19,7 @@ export const getAll = async (req,res) =>{
 
 export const Register= async (req,res)=>{
     try {
-        await TurnoModel.create(req.body)
+        await MedicoModel.create(req.body)
         res.json({"message": "Medico registrado correctamente"})
     } catch (error) {
         res.json({message:error.message})

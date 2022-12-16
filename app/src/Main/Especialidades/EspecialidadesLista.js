@@ -1,7 +1,8 @@
 import axios from 'axios'
 import {useState,useEffect} from 'react'
 import React from 'react'
-import {Link} from 'react-router-dom'
+import {Link} from 'react-router-dom';
+import Register from './CreateEspacialidad';
 const URL = 'http://localhost:8000/api/especialidad/';
 
 
@@ -20,18 +21,20 @@ const getEspecialidad = async () =>{
 
     const res = await axios.get(URL, {
         headers: {
-        'user-token': JSON.parse(localStorage.getItem("apiData"))
+        'user-token': localStorage.getItem("apiData")
         }
       }
     )
+    console.log(localStorage.getItem("apiData"));
+    console.log(res.data);
     setEspecialidad(res.data);
 }
 
 
 const deleteEspecialidad = async (id) => {
-    await axios.delete(URL,{
+    await axios.delete(URL+id,{
         headers: {
-        'user-token': JSON.parse(localStorage.getItem("apiData"))
+        'user-token': localStorage.getItem("apiData")
         }
       }
     
@@ -43,7 +46,7 @@ const deleteEspecialidad = async (id) => {
 return (
 
     <div className="ListContainer">
-<h4>Income</h4>
+<h4>Listado de Especialidades</h4>
 <tr className='ListTitle'>
 <th>Nombre</th>
 </tr>
@@ -56,6 +59,10 @@ return (
     </tr>
     )
     }
+<Register/>
+
+
+
       </div>  
 )
 

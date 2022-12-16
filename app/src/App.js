@@ -2,14 +2,14 @@ import React from "react"
 import "./App.css"
 
 
-
+import ConsultoriosLista from "./Main/Listas/ConsultoriosLista";
 import Register from "./Main/User/CreateUser.js";
 import Login from "./Main/User/Login.js";
 import Home from "./Main/Home/Home";
 import EspecialidadesLista from "./Main/Especialidades/EspecialidadesLista";
 import MedicosLista from "./Main/Listas/MedicosLista";
-import Paciente from "./Main/Home/Paciente";
-import Medico from "./Main/Home/Medico";
+
+import ServicioLista from "./Main/Listas/ServiciosLista";
 
 
 
@@ -26,8 +26,8 @@ function App() {
             <Route path='/Home' element={ <Home/>} />
             <Route path='/MedicosLista' element={ <MedicosLista/>} />
             <Route path='/EspecialidadesLista' element={ <EspecialidadesLista/>} />
-            <Route path='/Paciente' element={ <Paciente/>} />
-           
+            <Route path='/ServiciosLista' element={ <ServicioLista/>} />
+            <Route path='/ConsultoriosLista' element={ <ConsultoriosLista/>} />
       </Routes>
     </BrowserRouter>
     </div>

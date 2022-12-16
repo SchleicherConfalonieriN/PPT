@@ -2,21 +2,21 @@ import axios from 'axios'
 import {useState,useEffect} from 'react'
 import React from 'react'
 import {Link} from 'react-router-dom'
-const URL = 'http://localhost:8000/api/Medico/';
+const URL = 'http://localhost:8000/api/Servicio/';
 
 
 
 
-const MedicoLista =() =>{
+const ServicioLista =() =>{
 
-    const[medico, setMedico] = useState([])
+    const[servicio, setServicio] = useState([])
     useEffect (  () => {
 
-        getMedico()
+        getServicio()
 
     },[])
 
-const getMedico = async () =>{
+const getServicio = async () =>{
 
     const res = await axios.get(URL, {
         headers: {
@@ -26,11 +26,11 @@ const getMedico = async () =>{
     )
     console.log(localStorage.getItem("apiData"));
     console.log(res.data);
-    setMedico(res.data);
+    setServicio(res.data);
 }
 
 
-const deleteMedico = async (id) => {
+const deleteServicio = async (id) => {
     await axios.delete(URL+id,{
         headers: {
         'user-token': localStorage.getItem("apiData")
@@ -38,27 +38,28 @@ const deleteMedico = async (id) => {
       }
     
     )
-    getMedico()
+    getServicio()
  }
 
 
 return (
 
     <div className="ListContainer">
-<h4>Listado de Medicos</h4>
+<h4>Listado de Servicios</h4>
 <tr className='ListTitle'>
 <th>Nombre</th>
-<th>Especialidad</th>
-<th></th>
+<th>Precio</th>
+<th>Descripcion</th>
 <th></th>
 </tr>
 
-    {medico.map((mov,index) =>
+    {servicio.map((mov,index) =>
     <tr>
-    <th className='Content' key={index}>{mov.nombre} {mov.apellido}</th>
-    <th className='Content' key={index}>{mov.especialidad}</th>
+    <th className='Content' key={index}>{mov.nombre}</th>
+    <th className='Content' key={index}>{mov.precio}</th>
+    <th className='Content' key={index}>{mov.descripcion}</th>
     <th><Link to={`/edit/${mov.id}`}><h4>Edit</h4></Link></th>
-    <th><button onClick={()=>deleteMedico(mov.id)}>X</button></th>
+    <th><button onClick={()=>deleteServicio(mov.id)}>X</button></th>
     </tr>
     )
     }
@@ -66,4 +67,4 @@ return (
 )
 
 }
-export default MedicoLista;
+export default ServicioLista;

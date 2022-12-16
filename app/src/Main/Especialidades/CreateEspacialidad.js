@@ -9,8 +9,12 @@ const Register = () => {
 
     const create = async (e) =>{
         e.preventDefault()
-        axios.post(URL,{Nombre:nombre})
-        .then(window.location.assign('http://localhost:3000/'));
+        axios.post(URL,{Nombre:nombre},{
+            headers: {
+                'user-token': localStorage.getItem("apiData")
+                }
+        }
+        ).then(window.location.assign('http://localhost:3000/EspecialidadesLista'));
     }
 
 return (

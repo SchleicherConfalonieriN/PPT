@@ -11,10 +11,10 @@ const CheckToken = (req,res,next) =>{
     let payload ={};
 
     payload = jwt.decode(userToken,"frase secreta");
-
+/*
 if(payload.expiredAt < moment().unix()){
     return res.json({erro: "expired token"})
-}
+}*/
 
 req.userId = payload.userId;
 next();

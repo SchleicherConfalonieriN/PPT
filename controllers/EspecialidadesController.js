@@ -6,8 +6,8 @@ import EspecialidadModel from "../models/EspecialidadesModel.js"
 
 export const getAll = async (req,res) =>{
     try{
-        const transactions = await EspecialidadeModel.findAll({}); 
-        res.json(transactions)
+        const especialidades = await EspecialidadModel.findAll({}); 
+        res.json(especialidades)
     } catch(error){
         res.json ({message :error.message})
     }
@@ -19,8 +19,8 @@ export const getAll = async (req,res) =>{
 
 export const Register= async (req,res)=>{
     try {
-        await EspecialidadeModel.create(req.body)
-        res.json({"message":"consultorio registrado correctamente"})
+        await EspecialidadModel.create(req.body)
+        res.json({"message":"especialidad registrada correctamente"})
     } catch (error) {
         res.json({message:error.message})
     }
@@ -30,7 +30,7 @@ export const Register= async (req,res)=>{
 
 export const deleteEspecialidad = async (req, res) => {
     try {
-        await EspecialidadeModel.destroy({ 
+        await EspecialidadModel.destroy({ 
             where: {id:req.params.id}
         })
         res.json({
