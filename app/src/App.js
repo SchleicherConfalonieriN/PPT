@@ -1,6 +1,9 @@
 import React from "react"
 import "./App.css"
 
+//Barra
+
+import Barra from './Components/Barra';
 
 
 import Register from "./Main/User/CreateUser.js";
@@ -24,7 +27,7 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 function App() {
   return (
     <div className="App">
-  
+  <Barra/>
  <BrowserRouter>
       <Routes>
             <Route path='/' element={ <Login/>} />
