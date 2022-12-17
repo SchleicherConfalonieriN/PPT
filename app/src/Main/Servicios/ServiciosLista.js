@@ -2,6 +2,7 @@ import axios from 'axios'
 import {useState,useEffect} from 'react'
 import React from 'react'
 import {Link} from 'react-router-dom'
+import CreateServicio from "./CreateServicio";
 const URL = 'http://localhost:8000/api/Servicio/';
 
 
@@ -63,6 +64,8 @@ return (
     </tr>
     )
     }
+
+    <CreateServicio/>
       </div>  
 )
 

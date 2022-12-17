@@ -47,3 +47,23 @@ export const Login = async (req,res)=>{
         res.json({error: 'wrong email or password'});
     }
 }
+
+//update
+
+
+export const updateUser = async(req,res)=>{
+    try{
+        console.log(req.body);
+        const userToken = req.headers['user-token'];
+        let payload ={};
+        payload = jwt.decode(userToken,"frase secreta");
+        req.userId = payload.userId;
+        
+        await UserModel.update(req.body,{ 
+                where:{ id: req.userId}}
+        )
+                res.json("updated")
+        } catch (error) {
+                res.json( {message: error.message} )
+        }
+    }

@@ -16,6 +16,9 @@ const Administrador = () =>{
         <Link to={'/MedicosLista'}><button>Medicos</button></Link>
         <Link to={'/ServiciosLista'}><button>Servicios</button></Link>
         <Link to={'/ConsultorioLista'}><button> Colsultorios</button></Link>
+        <Link to={'/Register'}><button> Usuario Nuevo</button></Link>
+        <Link to={'/EditarDatos'}><button> Editar Datos</button></Link>
+     
          </div>
         </div>)
 }
