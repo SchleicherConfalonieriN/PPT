@@ -1,5 +1,5 @@
 import TurnoModel from "../models/TurnoModel.js"
-
+import db from "../db/db.js"
 
 
 //get all
@@ -10,23 +10,34 @@ export const getAllByMedico = async (req,res) =>{
             where:{ 
                 id_medico: req.userId}
         }); 
-        res.json(transactions)
+        res.json(turnos)
     } catch(error){
         res.json ({message :error.message})
     }
 }
 
-export const getAllByPaciente = async (req,res) =>{
+/*export const getAllByPaciente = async (req,res) =>{
     try{
         const turno = await TurnoModel.findAll({
             where:{ 
                 id_paciente: req.userId}
         }); 
-        res.json(transactions)
+        res.json(turnos)
     } catch(error){
         res.json ({message :error.message})
     }
 }
+*/
+export const getAllByPaciente = async (req,res) =>{
+    try{
+        const turno = await db.query(
+            "SELECT * FROM turnos join medicos on turnos.id_medico = medicos.id where turnos.id_paciente = 3"); 
+        res.json(turno)
+    } catch(error){
+        res.json ({message :error.message})
+    }
+}
+
 
 
 

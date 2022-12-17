@@ -15,6 +15,7 @@ import ConsultorioLista from "./Main/Consultorio/ConsultoriosLista.js";
 import EspecialidadesLista from "./Main/Especialidades/EspecialidadesLista";
 import MedicosLista from "./Main/Medicos/MedicosLista";
 import ServicioLista from "./Main/Servicios/ServiciosLista";
+import TurnoLista from "./Main/Turnos/TurnoList"
 //EDITAR
 import EditEspecialidad from './Main/Especialidades/EditarEspecialidades';
 import EditConsultorio from './Main/Consultorio/EditConsultorio';
@@ -35,7 +36,8 @@ function App() {
             <Route path='/Home' element={ <Home/>} />
             <Route path='/EditarDatos' element={ <UpdateUser/>} />
             <Route path='/Register' element={ <Register/>} />
-            <Route path='/Home/Register' element={ <Register/>} />
+            
+            <Route path='/TurnoLista' element={ <TurnoLista/>} />
             <Route path='/MedicosLista' element={ <MedicosLista/>} />
             <Route path='/EspecialidadesLista' element={ <EspecialidadesLista/>} />
             <Route path='/ServiciosLista' element={ <ServicioLista/>} />

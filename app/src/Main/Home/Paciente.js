@@ -11,7 +11,7 @@ const Paciente = () =>{
     return (
     
     <div  className='PrimaryContainer'>
-        Este es el paciente
+        <h1>ESTE ES EL PACIENTE</h1>
         <button>Mis Turnos</button>
         <button>Solicitar Turno</button>
         <Link to={'/EditarDatos'}><button> Editar Datos</button></Link>

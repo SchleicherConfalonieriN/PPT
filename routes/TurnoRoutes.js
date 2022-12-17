@@ -3,7 +3,7 @@ import {getAllByMedico,getAllByPaciente,Register,updateTurno, deleteTurno} from 
 const router = express.Router();
 
 router.get("/",getAllByMedico);
-router.get("/",getAllByPaciente);
+router.get("/Paciente",getAllByPaciente);
 router.post("/register",Register);
 router.delete("/:id",deleteTurno);
 router.put("/:id",updateTurno);
