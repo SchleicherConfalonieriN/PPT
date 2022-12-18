@@ -1,6 +1,7 @@
 import React from 'react'
 import axios from "axios";
 import {useState} from 'react'
+import {Link} from 'react-router-dom'
 
 const URL ='http://localhost:8000/api/user/register';
 
@@ -35,24 +36,25 @@ const Register = () => {
 
 return (
 
-    <div className= "PrimaryContainer">
+    <div className= "FormContainer">
         <h2>Register</h2>
         <form onSubmit={create}>
         
-        <label>Nombre</label>    
-        <input type={"text"} value={nombre} onChange={(e)=> SetNombre(e.target.value)}></input>
+        <label>Nombre </label>  <br></br>  
+        <input  type={"text"} value={nombre} onChange={(e)=> SetNombre(e.target.value)}></input>
         <br></br>
-        <label>Apellido</label>    
+        <label>Apellido  </label>  <br></br>  
         <input type={"text"} value={apellido} onChange={(e)=> SetApellido(e.target.value)}></input>
         <br></br>
-        <label>Email</label>    
+        <label>Email    </label>  <br></br>  
         <input type={"text"} value={email} onChange={(e)=> SetEmail(e.target.value)}></input>
         <br></br>
-        <label>Password</label>    
+        <label>Password  </label><br></br>    
         <input type={"text"} value={password} onChange={(e)=> SetPassword(e.target.value)}></input>
         <br></br>
-        <label>Tipo</label>    
-
+        {rol === 3 && ( 
+        <label>Tipo</label> 
+        )}
         {rol === 3 && (
         
         <select onChange={(e)=> SetType(e.target.value)} >
@@ -64,6 +66,7 @@ return (
         )}
         <br></br>
         <input type={"submit"}></input>
+        <Link  to={"/"}>Cancelar</Link>
         </form>
      </div>
     )

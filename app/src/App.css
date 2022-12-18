@@ -1,19 +1,57 @@
-body{
-
-}
-
-
 .App {
 
-    height: 500px;
-    display: flex;
+   
     justify-content: center;
     align-items: center; 
-    background-color: red;
+
 }
 
 .PrimaryContainer{
 text-align: center;
+}
+
+
+.ListContainer{
+    width: 100%;
+    background-color: red;
+}
+tr{
+    margin: 40px;
+    background-color: blue;
+    width: 500px;
+}
+.Content{
+    width: 300px;
+}
+.FormContainer{
+    
+    width: fit-content;
+    height: fit-content;
+    padding: 10px;
+    border-style: none;
+    border-radius: 10px;
+    text-align: center; 
+}
+
+form input{
+    margin: 5px;
+}
+form select{
+    margin:10px
+}
+
+input[type=submit]{
+    background-color: white;
+    border: none;
+    font-size: 15px;
+    color:palevioletred;
+    margin:10px
+}
+a {
+    color:palevioletred;
+    text-decoration:none ;
+    font-size: 15px;
+    margin:10px
 }
 
 .listaOpciones{
@@ -23,4 +61,52 @@ text-align: center;
 
 th{
     padding: 10px;
+}
+.nav{
+    height: 100%;
+    margin-left: 0;
+    border-right: 2px solid palevioletred;
+    width: 20%;
+}
+.navs{
+    display: flex;
+    width: 100%;
+    margin-top: 0;
+    border-bottom: 2px solid palevioletred;
+}
+
+.navs button{
+    color : black;
+    background-color: white;
+    border-color: white;
+    border-style: none;
+}
+ul{
+    list-style: none;
+}
+
+
+#bt2{
+width: 92%;
+}
+
+
+#home{
+    display: flex;
+    width: 80%;
+    justify-content: center;
+    text-align: center;
+}
+#c{
+    display: flex;
+   
+}
+
+#Login{
+  position: absolute; 
+  left: 0; 
+  right: 0; 
+  margin-left: auto; 
+  margin-right: auto; 
+  border-color: palevioletred; 
 }

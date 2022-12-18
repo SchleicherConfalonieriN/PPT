@@ -11,7 +11,7 @@ const CerrarSession = () => {
 
 return (
 
-    <div className= "PrimaryContainer">
+    <div id= "bt1">
         <button onClick={()=>Csession()}>Cerrar Sesion</button>  
     </div>
     )

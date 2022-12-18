@@ -30,9 +30,10 @@ export const getAllByMedico = async (req,res) =>{
 */
 export const getAllByPaciente = async (req,res) =>{
     try{
+        
         const turno = await db.query(
-            "SELECT * FROM turnos join medicos on turnos.id_medico = medicos.id where turnos.id_paciente = 3"); 
-        res.json(turno)
+            "SELECT * FROM turnos join medicos on turnos.id_medico = medicos.id where turnos.id_paciente ="+ req.userId); 
+        res.json(turno[0])
     } catch(error){
         res.json ({message :error.message})
     }

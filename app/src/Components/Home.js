@@ -10,7 +10,7 @@ const Home = () => {
 
 return (
 
-    <div className= "PrimaryContainer">
+    <div id= "bt2">
         <button onClick={()=>Hsession()}>Home</button>  
     </div>
     )

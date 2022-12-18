@@ -1,7 +1,7 @@
 import React from 'react'
 import axios from "axios";
 import {useState} from 'react'
-
+import {Link} from 'react-router-dom'
  const URL ='http://localhost:8000/api/user/login';
 
 const Login = () =>{
@@ -21,23 +21,24 @@ const Login = () =>{
 
 return (
 
-    <div className= "PrimaryContainer">
+    <div className= "FormContainer" id = "Login">
         <h2>Login</h2>
-        <form onSubmit={create}>
-        <label>Email</label>    
-        <input type={"text"} value={email} onChange={(e)=> SetEmail(e.target.value)}></input>
+        <form onSubmit={create}> 
+        <input type={"text"} value={email} onChange={(e)=> SetEmail(e.target.value)} placeholder="Email"></input>
+        <br></br>  
+        <input type={"password"} value={password} onChange={(e)=> SetPassword(e.target.value)}placeholder="Password"></input>
         <br></br>
-        <label>Password</label>    
-        <input type={"password"} value={password} onChange={(e)=> SetPassword(e.target.value)}></input>
-        <br></br>
-        <label>Tipo</label>    
-        <select  value={tipo} onChange={(e)=> SetTipo(e.target.value)}>
+        <label>Tipo</label>
+        <select id = "srol"  value={tipo} onChange={(e)=> SetTipo(e.target.value)}>
         <option value="1" >Paciente</option>
         <option value="2">Doctor</option>
         <option value="3">Administrador</option>
         </select>
         <br></br>
+        <div className='Formbtn'>
         <input type={"submit"}></input>
+        <Link  to={"/Register"}>Registrarse</Link>
+        </div>
         </form>
      </div>
     )

@@ -3,7 +3,7 @@ import axios from "axios";
 import {useState} from 'react'
 
 
-const URL ='http://localhost:8000/api/servicio/turno';
+const URL ='http://localhost:8000/api/turno';
 
 const Turno = () => {
     const [nombre,setNombre] = useState('')
@@ -29,7 +29,7 @@ return (
         <input type={"text"} value={nombre} onChange={(e)=> setNombre(e.target.value)}></input>
         <br></br>
         <label>Fecha</label>    
-        <input type="datetime" value={date} onChange={(e)=> setDate(e.target.value)}></input>
+        <input type="date" value={date} onChange={(e)=> setDate(e.target.value)}></input>
         <br></br>
         <label>id medico</label>    
         <input type={"number"} value={id_medico} onChange={(e)=> setIdMedico(e.target.value)}></input>

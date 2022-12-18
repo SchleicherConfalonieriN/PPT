@@ -50,13 +50,15 @@ return (
 <h4>Listado de Especialidades</h4>
 <tr className='ListTitle'>
 <th>Nombre</th>
+<th></th>
+<th></th>
 </tr>
 
     {especialidad.map((mov,index) =>
     <tr>
     <th className='Content' key={index}>{mov.Nombre}</th>
-    <th><Link to={`./edit/${mov.id}`}><h4>Edit</h4></Link></th>
-    <th><button onClick={()=>deleteEspecialidad(mov.id)}>X</button></th>
+    <th className='Content'><Link to={`./edit/${mov.id}`}><h4>Edit</h4></Link></th>
+    <th className='Content'><button onClick={()=>deleteEspecialidad(mov.id)}>X</button></th>
     </tr>
     )
     }

@@ -49,23 +49,23 @@ return (
 <h4>Listado de Turnos</h4>
 <tr className='ListTitle'>
 <th>Nombre</th>
-<th>Precio</th>
-<th>Descripcion</th>
+<th>precio</th>
+<th>id del doctor</th>
+<th>fecha</th>
 <th></th>
 </tr>
 
     {turno.map((mov,index) =>
     <tr>
-    <th className='Content' key={index}>{mov.nombre}</th>
+    <th className='Content' key={index}>{mov.nombre} {mov.apellido}</th>
     <th className='Content' key={index}>{mov.precio}</th>
-    <th className='Content' key={index}>{mov.descripcion}</th>
+    <th className='Content' key={index}>{mov.id_medico}</th>
+    <th className='Content' key={index}>{mov.Date}</th>
     <th><Link to={`/edit/${mov.id}`}><h4>Edit</h4></Link></th>
     <th><button onClick={()=>deleteTurno(mov.id)}>X</button></th>
     </tr>
     )
     }
-
-    <CreateTurno/>
       </div>  
 )
 

@@ -1,13 +1,36 @@
 import React  from 'react';
-import CerrarSession from './CerrarSesion';
-import Home from './Home';
 
+import {Link} from 'react-router-dom';
 const Barra = () =>{
+/*
+    {rol === 3  && (          )} 
+    {rol === 3  && (          )} 
+    {rol === 3  && (          )} 
+    {rol === 3  && (          )} 
+    {rol === 3  && (          )} 
+    {rol === 3  && (          )} 
+*/
+const rol =  JSON.parse(localStorage.getItem("rol"))
+
+
+
 
     return(
-        <div>
-            <Home/>
-            <CerrarSession/>
+        <div className='nav'>
+        <ul>    
+
+            {rol === 3  && (<li><Link to={'/EspecialidadesLista'}>Especialidad</Link></li>)}    
+            {rol === 3  && (<li><Link to={'/MedicosLista'}>Medicos</Link></li>)} 
+            {rol === 3  && (<li><Link to={'/ServiciosLista'}>Servicios</Link></li>)} 
+            {rol === 3  && (<li><Link to={'/ConsultorioLista'}> Colsultorios</Link></li>)} 
+            {rol === 3  && (<li><Link to={'/Register'}> Usuario Nuevo</Link></li>)} 
+            {rol  && (<li><Link to={'/EditarDatos'}> Editar Datos</Link></li>)} 
+            {rol === 1  && (<li><Link to={'/TurnoLista'}> Turnos</Link></li>)} 
+            {rol === 1  && (<li><Link to={'/CreateTurno'}> Solicitar Turnos</Link></li>)} 
+          
+           
+        
+        </ul>
         </div>
     )
 }

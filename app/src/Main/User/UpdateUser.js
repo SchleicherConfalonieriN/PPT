@@ -32,19 +32,20 @@ const EditUser = () => {
 
 return(
 
-    <div className='PrimaryContainer'>
+    <div className='FormContainer'>
         <h2>Editar user</h2>
         
     <form onSubmit={edit}>
-        <label>Nombre</label>
+        <label>Nombre</label>        <br></br>
         <input value={nombre} onChange={(e)=> setNombre(e.target.value)} type='text'/>
-        <label>Apellido</label>    
+        <br></br>
+        <label>Apellido</label>            <br></br>
         <input type={"text"} value={apellido} onChange={(e)=> SetApellido(e.target.value)}></input>
         <br></br>
-        <label>Email</label>    
+        <label>Email</label>            <br></br>
         <input type={"text"} value={email} onChange={(e)=> SetEmail(e.target.value)}></input>
         <br></br>
-        <label>Password</label>    
+        <label>Password</label>           <br></br> 
         <input type={"text"} value={password} onChange={(e)=> SetPassword(e.target.value)}></input>
         <br></br>  
        
@@ -52,8 +53,6 @@ return(
         
     <button type= "submit">Edit</button>
     </form>
-
-    <Link to={`/home`}><button><h4>Home</h4></button></Link>
 </div>
 )
 }
