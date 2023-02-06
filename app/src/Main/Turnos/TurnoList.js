@@ -2,8 +2,9 @@ import axios from 'axios'
 import {useState,useEffect} from 'react'
 import React from 'react'
 import {Link} from 'react-router-dom'
-import CreateTurno from "./CreateTurno";
+
 const URL = 'http://localhost:8000/api/turno/Paciente';
+const URL1 = 'http://localhost:8000/api/turno/';
 
 
 
@@ -25,20 +26,21 @@ const getTurno = async () =>{
         }
       }
     )
-    console.log(localStorage.getItem("apiData"));
+
     console.log(res.data);
     setTurno(res.data);
 }
 
 
 const deleteTurno = async (id) => {
-    await axios.delete(URL+id,{
+    console.log(id)
+    await axios.delete(URL1+id,{
         headers: {
         'user-token': localStorage.getItem("apiData")
         }
       }
     
-    )
+    ).then(res => console.log(res))
     getTurno()
  }
 

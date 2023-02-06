@@ -16,7 +16,10 @@ const TurnoModel = db.define('turno',{
     type: DataTypes.INTEGER
     },
     Date: {
-        type: DataTypes.DATE
+        type: DataTypes.DATEONLY
+    },
+    Hour: {
+        type: DataTypes.INTEGER
     }
     
 }

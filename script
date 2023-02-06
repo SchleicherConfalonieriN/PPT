@@ -1,0 +1,64 @@
+/// ESPECIALIDADES
+
+
+INSERT INTO `especialidades` (`Nombre`, `createdAt`, `updatedAt`) VALUES ('Cardiologia', '2023-02-03 18:56:07.000000', '2023-02-03 18:56:07.000000');
+INSERT INTO `especialidades` (`Nombre`, `createdAt`, `updatedAt`) VALUES ('Neurologia', '2023-02-03 18:56:07.000000', '2023-02-03 18:56:07.000000');
+
+INSERT INTO `especialidades` (`Nombre`, `createdAt`, `updatedAt`) VALUES ('Odontologia', '2023-02-03 18:56:07.000000', '2023-02-03 18:56:07.000000');
+
+INSERT INTO `especialidades` (`Nombre`, `createdAt`, `updatedAt`) VALUES ('Oncologia', '2023-02-03 18:56:07.000000', '2023-02-03 18:56:07.000000');
+
+INSERT INTO `especialidades` (`Nombre`, `createdAt`, `updatedAt`) VALUES ('Pediatria', '2023-02-03 18:56:07.000000', '2023-02-03 18:56:07.000000');
+
+///////////////////USUARIOS CON MEDICOS
+
+INSERT INTO `users` (`id`, `Name`, `LastName`, `Type`, `Email`, `Password`, `createdAt`, `updatedAt`) VALUES (NULL, 'Luis', 'Ramirez', '3', 'l', '1', '2023-02-03 19:00:38.000000', '2023-02-03 19:00:38.000000');
+
+
+INSERT INTO `users` (`id`, `Name`, `LastName`, `Type`, `Email`, `Password`, `createdAt`, `updatedAt`) VALUES (NULL, 'Jose', 'Martinez', '2', 'j', '1', '2023-02-03 19:00:38.000000', '2023-02-03 19:00:38.000000');
+
+INSERT INTO `medicos` (`id`, `Nombre`, `Apellido`, `precio`, `createdAt`, `updatedAt`) VALUES (NULL, 'Jose', 'Martinez', '2000', '2023-02-03 19:00:38.000000', '2023-02-03 19:00:38.000000');
+
+
+INSERT INTO `users` (`id`, `Name`, `LastName`, `Type`, `Email`, `Password`, `createdAt`, `updatedAt`) VALUES (NULL, 'Kevin', 'Lima', '2', 'k', '1', '2023-02-03 19:00:38.000000', '2023-02-03 19:00:38.000000');
+
+INSERT INTO `medicos` (`id`, `Nombre`, `Apellido`, `precio`, `createdAt`, `updatedAt`) VALUES (NULL, 'Kevin', 'Lima', '2000', '2023-02-03 19:00:38.000000', '2023-02-03 19:00:38.000000');
+
+
+INSERT INTO `users` (`id`, `Name`, `LastName`, `Type`, `Email`, `Password`, `createdAt`, `updatedAt`) VALUES (NULL, 'Jose', 'Leon', '2', 'j', '1', '2023-02-03 19:00:38.000000', '2023-02-03 19:00:38.000000');
+
+INSERT INTO `medicos` (`id`, `Nombre`, `Apellido`, `precio`, `createdAt`, `updatedAt`) VALUES (NULL, 'Jose', 'Leon', '5300', '2023-02-03 19:00:38.000000', '2023-02-03 19:00:38.000000');
+
+INSERT INTO `users` (`id`, `Name`, `LastName`, `Type`, `Email`, `Password`, `createdAt`, `updatedAt`) VALUES (NULL, 'Lucas', 'Schleicher', '2', 'l', '1', '2023-02-03 19:00:38.000000', '2023-02-03 19:00:38.000000');
+
+INSERT INTO `medicos` (`id`, `Nombre`, `Apellido`, `precio`, `createdAt`, `updatedAt`) VALUES (NULL, 'Lucas', 'Schleicher', '5300', '2023-02-03 19:00:38.000000', '2023-02-03 19:00:38.000000');
+
+
+INSERT INTO `users` (`id`, `Name`, `LastName`, `Type`, `Email`, `Password`, `createdAt`, `updatedAt`) VALUES (NULL, 'Noelia', 'Soledad', '1', 'n', '1', '2023-02-03 19:00:38.000000', '2023-02-03 19:00:38.000000');
+
+INSERT INTO `users` (`id`, `Name`, `LastName`, `Type`, `Email`, `Password`, `createdAt`, `updatedAt`) VALUES (NULL, 'Lusiana', 'Padrote', '1', 'n', '1', '2023-02-03 19:00:38.000000', '2023-02-03 19:00:38.000000');
+
+
+
+
+
+///ESPECIALIDADES MEDICOS REALACION
+
+INSERT INTO `medico_especialidads` (`id`, `id_medico`, `id_especialidad`, `createdAt`, `updatedAt`) VALUES (NULL, '1', '1', '2023-02-03 19:16:37.000000', '2023-02-03 19:16:37.000000');
+
+INSERT INTO `medico_especialidads` (`id`, `id_medico`, `id_especialidad`, `createdAt`, `updatedAt`) VALUES (NULL, '2', '2', '2023-02-03 19:16:37.000000', '2023-02-03 19:16:37.000000');
+
+INSERT INTO `medico_especialidads` (`id`, `id_medico`, `id_especialidad`, `createdAt`, `updatedAt`) VALUES (NULL, '3', '3', '2023-02-03 19:16:37.000000', '2023-02-03 19:16:37.000000');
+
+INSERT INTO `medico_especialidads` (`id`, `id_medico`, `id_especialidad`, `createdAt`, `updatedAt`) VALUES (NULL, '4', '4', '2023-02-03 19:16:37.000000', '2023-02-03 19:16:37.000000');
+
+INSERT INTO `medico_especialidads` (`id`, `id_medico`, `id_especialidad`, `createdAt`, `updatedAt`) VALUES (NULL, '1', '3', '2023-02-03 19:16:37.000000', '2023-02-03 19:16:37.000000');
+
+INSERT INTO `medico_especialidads` (`id`, `id_medico`, `id_especialidad`, `createdAt`, `updatedAt`) VALUES (NULL, '4', '5', '2023-02-03 19:16:37.000000', '2023-02-03 19:16:37.000000');
+
+
+////joins para saber si la lista con todos los medicos y sus especialdides funciona
+
+SELECT medico_especialidads.id, especialidades.Nombre,medicos.id as 'medico_id',
+especialidades.id as 'especialidad_id', medicos.precio, medicos.nombre, medicos.apellido FROM medico_especialidads join medicos on medico_especialidads.id_medico = medicos.id
+ join especialidades on especialidades.id = medico_especialidads.id_especialidad;

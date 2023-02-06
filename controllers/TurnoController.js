@@ -28,16 +28,40 @@ export const getAllByMedico = async (req,res) =>{
     }
 }
 */
-export const getAllByPaciente = async (req,res) =>{
+export const getDateByMedico = async (req,res) =>{
     try{
-        
-        const turno = await db.query(
-            "SELECT * FROM turnos join medicos on turnos.id_medico = medicos.id where turnos.id_paciente ="+ req.userId); 
-        res.json(turno[0])
+        console.log(req.body.id_medico)
+        console.log(req.body.date)
+        const turno = await TurnoModel.findAll({
+            where:{ 
+                id_medico: req.body.id_medico,
+                Date: req.body.Date    
+            }
+        }); 
+             
+        res.json(turno)
     } catch(error){
         res.json ({message :error.message})
     }
 }
+
+
+
+export const getAllByPaciente = async(req,res) =>{
+    try{
+        const turno = await db.query(
+            "SELECT turnos.id, medicos.id as id_medico, medicos.precio, medicos.nombre, medicos.apellido, medicos.nombre, turnos.Date FROM turnos join medicos on turnos.id_medico = medicos.id where turnos.id_paciente ="+ req.userId); 
+        res.json(turno[0])
+
+    }catch(error){
+    res.json({message :error.message})
+    }    
+}
+
+
+
+
+
 
 
 
@@ -46,7 +70,12 @@ export const getAllByPaciente = async (req,res) =>{
 
 export const Register= async (req,res)=>{
     try {
-        await TurnoModel.create(req.body)
+        await TurnoModel.create({
+            id_paciente:req.userId,
+            id_medico : req.body.id_medico,
+            Date:req.body.Date,
+            Hour:req.body.Hour
+        })
         res.json({"message":"turno registrado correctamente"})
     } catch (error) {
         res.json({message:error.message})

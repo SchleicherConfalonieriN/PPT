@@ -17,9 +17,6 @@ const MedicoModel = db.define('medicos',{
     },
     precio: {
     type: DataTypes.FLOAT
-    },
-    especialidad: {
-        type: DataTypes.STRING(500)
     }
     }
 );
