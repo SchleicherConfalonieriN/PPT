@@ -20,7 +20,7 @@ const EditEspecialidad = () => {
        await axios.put(URL + id,{Nombre:nombre},{
             headers: {
                 'user-token': localStorage.getItem("apiData")}
-             }).then((response) => {console.log(response); });
+             }).then(window.location.assign('http://localhost:3000/EspecialidadesLista'));;
           
     }
 
@@ -37,10 +37,9 @@ return(
             type='text'
         />
         
-    <button type= "submit">Edit</button>
+    <button type= "submit">Editar</button>
     </form>
 
-    <Link to={`/home`}><button><h4>Home</h4></button></Link>
 </div>
 )
 }

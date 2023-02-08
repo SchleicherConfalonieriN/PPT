@@ -47,19 +47,20 @@ return (
 
     <div className="ListContainer">
 <h4>Listado de Servicios</h4>
-<tr className='ListTitle'>
+<tr className='trtitle'>
 <th>Nombre</th>
 <th>Precio</th>
 <th>Descripcion</th>
+<th></th>
 <th></th>
 </tr>
 
     {servicio.map((mov,index) =>
     <tr>
-    <th className='Content' key={index}>{mov.nombre}</th>
-    <th className='Content' key={index}>{mov.precio}</th>
-    <th className='Content' key={index}>{mov.descripcion}</th>
-    <th><Link to={`/edit/${mov.id}`}><h4>Edit</h4></Link></th>
+    <th  key={index}>{mov.nombre}</th>
+    <th  key={index}>{mov.precio}</th>
+    <th  key={index}><button>Info</button><div className='info'>{mov.descripcion}</div></th>
+    <th><Link to={`./edit/${mov.id}`}>Edit</Link></th>
     <th><button onClick={()=>deleteServicio(mov.id)}>X</button></th>
     </tr>
     )

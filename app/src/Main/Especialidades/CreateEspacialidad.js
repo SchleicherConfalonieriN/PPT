@@ -20,8 +20,8 @@ const Register = () => {
 
 return (
 
-    <div className= "PrimaryContainer">
-        <h2>Register</h2>
+    <div className= "FormContainerEdit" >
+        <h3>Registrar nueva especialidad</h3>
         <form onSubmit={create}>
         <label>Nombre</label>    
         <input type={"text"} value={nombre} onChange={(e)=> SetNombre(e.target.value)}></input>

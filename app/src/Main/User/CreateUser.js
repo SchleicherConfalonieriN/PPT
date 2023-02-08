@@ -4,7 +4,7 @@ import {useState} from 'react'
 import {Link} from 'react-router-dom'
 
 const URL ='http://localhost:8000/api/user/register';
-
+const URL1 = 'http://localhost:8000/api/medico/register'
 const Register = () => {
    // const [dni,SetDni] = useState('')
     const [nombre,SetNombre] = useState('')
@@ -29,7 +29,14 @@ const Register = () => {
             .then(window.location.assign('http://localhost:3000/Home'));
 
         }
-            
+        if(type ===2){
+            axios.post(URL,
+                {Name:nombre,LastName: apellido,Email:email, Password:password,Type:2}
+                ).then(axios.post(URL,
+                    {nombre:nombre,apellido: apellido,precio:5000,email:email, Password:password,Type:2})
+            )   
+        }
+        
         }
 
     }
@@ -59,7 +66,6 @@ return (
         
         <select onChange={(e)=> SetType(e.target.value)} >
             <option value={0}>------------------</option>
-            <option value={1}>Paciente</option>
             <option value={2}>Medico</option>
             <option value={3}>Administrador</option>
         </select>

@@ -23,7 +23,7 @@ export const getAll = async (req,res) =>{
 
 export const Register= async (req,res)=>{
     try {
-        await EspecialidadModel.create(req.body)
+        await Medico_EspecialidadModel.create(req.body)
         res.json({"message":"especialidad registrada correctamente"})
     } catch (error) {
         res.json({message:error.message})
@@ -34,7 +34,7 @@ export const Register= async (req,res)=>{
 
 export const deleteEM = async (req, res) => {
     try {
-        await EspecialidadModel.destroy({ 
+        await Medico_EspecialidadModel.destroy({ 
             where: {id:req.params.id}
         })
         res.json({
@@ -48,7 +48,7 @@ export const deleteEM = async (req, res) => {
 
 export const update = async(req,res)=>{
         try{
-            await EspecialidadModel.update(req.body,{ 
+            await Medico_EspecialidadModel.update(req.body,{ 
                     where:{ id: req.params.id}}
             )
             res.json("updated")

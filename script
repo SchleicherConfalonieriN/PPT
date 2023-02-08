@@ -39,9 +39,18 @@ INSERT INTO `users` (`id`, `Name`, `LastName`, `Type`, `Email`, `Password`, `cre
 INSERT INTO `users` (`id`, `Name`, `LastName`, `Type`, `Email`, `Password`, `createdAt`, `updatedAt`) VALUES (NULL, 'Lusiana', 'Padrote', '1', 'n', '1', '2023-02-03 19:00:38.000000', '2023-02-03 19:00:38.000000');
 
 
+###################
+
+INSERT INTO `medicos` (`Nombre`, `Apellido`, `precio`,`email`, `createdAt`, `updatedAt`) VALUES ('Kevin', 'Lima', '2000','k', '2023-02-03 19:00:38.000000', '2023-02-03 19:00:38.000000');
+
+INSERT INTO `medicos` (`Nombre`, `Apellido`, `precio`,`email`,  `createdAt`, `updatedAt`) VALUES ('Jose', 'Martinez', '2000','j' '2023-02-03 19:00:38.000000', '2023-02-03 19:00:38.000000');
 
 
+INSERT INTO `medicos` (`Nombre`, `Apellido`, `precio`,`email`,  `createdAt`, `updatedAt`) VALUES ('Jose', 'Leon', '5300','j' '2023-02-03 19:00:38.000000', '2023-02-03 19:00:38.000000');
 
+INSERT INTO `medicos` (`Nombre`, `Apellido`, `precio`,`email`,  `createdAt`, `updatedAt`) VALUES ('Lucas', 'Schleicher','l' '5300', '2023-02-03 19:00:38.000000', '2023-02-03 19:00:38.000000');
+
+####################
 ///ESPECIALIDADES MEDICOS REALACION
 
 INSERT INTO `medico_especialidads` (`id`, `id_medico`, `id_especialidad`, `createdAt`, `updatedAt`) VALUES (NULL, '1', '1', '2023-02-03 19:16:37.000000', '2023-02-03 19:16:37.000000');
@@ -57,8 +66,39 @@ INSERT INTO `medico_especialidads` (`id`, `id_medico`, `id_especialidad`, `creat
 INSERT INTO `medico_especialidads` (`id`, `id_medico`, `id_especialidad`, `createdAt`, `updatedAt`) VALUES (NULL, '4', '5', '2023-02-03 19:16:37.000000', '2023-02-03 19:16:37.000000');
 
 
-////joins para saber si la lista con todos los medicos y sus especialdides funciona
+##joins para saber si la lista con todos los medicos y sus especialdides funciona
 
 SELECT medico_especialidads.id, especialidades.Nombre,medicos.id as 'medico_id',
 especialidades.id as 'especialidad_id', medicos.precio, medicos.nombre, medicos.apellido FROM medico_especialidads join medicos on medico_especialidads.id_medico = medicos.id
  join especialidades on especialidades.id = medico_especialidads.id_especialidad;
+
+##join de espcialdiades de medico
+select especialidades.Nombre,  medico_especialidads.id_medico 
+from especialidades 
+left join medico_especialidads on medico_especialidads.id_especialidad = especialidades.id
+where medico_especialidads.id_medico is Null
+or medico_especialidads.id_medico != 1
+
+
+ #borra trigger en caso de que exista
+DELIMITER //
+CREATE TRIGGER turno_update 
+BEFORE UPDATE 
+on turnos 
+for each ROW 
+BEGIN 
+SET @nombre = (select nombre from medicos where id = new.id_medico); 
+SET @apellido = (select apellido from medicos where id = new.id_medico); 
+set @medico = CONCAT(@nombre," ",@apellido); 
+set @nombre_paciente = (select Name from users where id = new.id_paciente); 
+set @apellido_paciente = (select LastName from users where id = new.id_paciente); 
+set @paciente = CONCAT(@nombre_paciente," ",@apellido_paciente); 
+set @datenew = new.Date; 
+set @dateold = old.Date;
+set @hournew = new.Hour; 
+set @hourold = old.Hour;
+
+INSERT into mensajeria(id_paciente,id_medico,medico,paciente,DateOld,DateNew,HourOld,HourNew,Leido,Tipo) 
+VALUES (new.id_paciente,new.id_medico,@medico,@paciente,@dateold,@datenew,@hourold,@hournew,0,"update"); 
+END; 
+//

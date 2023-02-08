@@ -15,6 +15,9 @@ const MedicoModel = db.define('medicos',{
     apellido: {type: DataTypes.STRING,   
         allowNull: false,
     },
+    email: {type: DataTypes.STRING,   
+        allowNull: false,
+    },
     precio: {
     type: DataTypes.FLOAT
     }

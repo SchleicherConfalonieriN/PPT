@@ -26,6 +26,19 @@ export const Register= async (req,res)=>{
     }
 }
 
+export const getById= async (req,res)=>{
+    try {
+     const   Medico = await MedicoModel.findAll({
+            where: {
+                id: req.params.id
+            }
+        })
+        res.json(Medico)
+    } catch (error) {
+        res.json({message:error.message})
+    }
+}
+
 //borrar
 
 export const deleteMedico = async (req, res) => {
@@ -45,7 +58,7 @@ export const deleteMedico = async (req, res) => {
 export const updateMedico = async(req,res)=>{
         try{
             await MedicoModel.update(req.body,{ 
-                    where:{ id: req.body.id}}
+                    where:{ id: req.params.id}}
             )
             res.json("updated")
             } catch (error) {

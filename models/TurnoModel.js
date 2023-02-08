@@ -21,6 +21,10 @@ const TurnoModel = db.define('turno',{
     Hour: {
         type: DataTypes.INTEGER
     }
+    ,
+    Mensaje: {
+        type: DataTypes.INTEGER
+    }
     
 }
 );

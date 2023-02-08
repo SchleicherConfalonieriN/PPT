@@ -17,6 +17,8 @@ import EditEspecialidad from '../Especialidades/EditarEspecialidades';
 import EditConsultorio from '../Consultorio/EditConsultorio';
 
 import {Route, Routes } from 'react-router-dom';
+import EditMedico from "../Medicos/EditMedico";
+import EditServicio from "../Servicios/EditServicio";
 
 const Home = () => {
 
@@ -32,8 +34,10 @@ const rol =  JSON.parse(localStorage.getItem("rol"))
         <Route path='/Register' element={ <Register/>} />
         <Route path='/TurnoLista' element={ <TurnoLista/>} />
         <Route path='/MedicosLista' element={ <MedicosLista/>} />
+        <Route path='/MedicosLista/edit/:id' element={<EditMedico/>}/>
         <Route path='/EspecialidadesLista' element={ <EspecialidadesLista/>} />
         <Route path='/ServiciosLista' element={ <ServicioLista/>} />
+        <Route path='/ServiciosLista/edit/:id' element= {<EditServicio/>}/>
         <Route path='/ConsultorioLista' element={ <ConsultorioLista/>} />
         <Route path='/EspecialidadesLista/edit/:id' element={ <EditEspecialidad/>} />
         <Route path='/ConsultorioLista/edit/:id' element={ <EditConsultorio/>} />

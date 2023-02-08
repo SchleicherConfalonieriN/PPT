@@ -12,6 +12,8 @@ const ConsultorioModel = db.define('consultorio',{
     Numero: {type: DataTypes.INTEGER,   
         allowNull: false,
         unique: true
+    },
+    id_medico: {type: DataTypes.INTEGER,   
     }
 }
 );

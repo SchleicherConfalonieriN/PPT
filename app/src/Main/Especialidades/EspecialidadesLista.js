@@ -48,16 +48,16 @@ return (
 
     <div className="ListContainer">
 <h4>Listado de Especialidades</h4>
-<tr className='ListTitle'>
+<tr className='trtitle'>
 <th>Nombre</th>
 <th></th>
 <th></th>
 </tr>
 
     {especialidad.map((mov,index) =>
-    <tr>
+    <tr className='trlist'>
     <th className='Content' key={index}>{mov.Nombre}</th>
-    <th className='Content'><Link to={`./edit/${mov.id}`}><h4>Edit</h4></Link></th>
+    <th className='Content'><Link to={`./edit/${mov.id}`}>Edit</Link></th>
     <th className='Content'><button onClick={()=>deleteEspecialidad(mov.id)}>X</button></th>
     </tr>
     )

@@ -13,12 +13,16 @@ text-align: center;
 
 .ListContainer{
     width: 100%;
-    background-color: red;
+  
 }
 tr{
+
     margin: 40px;
-    background-color: blue;
     width: 500px;
+}
+
+.Edit{
+display: flex;
 }
 .Content{
     width: 300px;
@@ -32,7 +36,16 @@ tr{
     border-radius: 10px;
     text-align: center; 
 }
-
+.FormContainerEdit{
+    width: fit-content;
+    height: fit-content;
+    padding: 10px;
+    border: solid black 3px;
+    border-radius: 10px;
+    text-align: center;  
+    margin-left: 30px;
+ 
+}
 form input{
     margin: 5px;
 }
@@ -86,6 +99,12 @@ ul{
 }
 
 
+.info{
+    display: none;
+}
+
+
+
 #bt2{
 width: 92%;
 }
@@ -109,4 +128,8 @@ width: 92%;
   margin-left: auto; 
   margin-right: auto; 
   border-color: palevioletred; 
+}
+
+.trtitle{
+    background-color: palevioletred;
 }

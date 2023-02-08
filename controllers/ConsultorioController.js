@@ -13,6 +13,17 @@ export const getAll = async (req,res) =>{
 }
 
 
+export const getOne = async (req, res) => {
+    try{
+     
+        const consultorio = await ConsultorioModel.findAll({
+            where: {id_medico : req.params.id}
+          }); 
+        res.json(consultorio[0])
+    } catch(error){
+        res.json ({message :error.message})
+    }
+    }
 
 //register
 
@@ -42,12 +53,15 @@ export const deleteConsultorio = async (req, res) => {
 
     }
 
+
+
 export const updateConsultorio = async(req,res)=>{
         try{
-            await ConsultorioModel.update(req.body,{ 
-                    where:{ id: req.body.id}}
+            await ConsultorioModel.update(
+                {id_medico:req.body.id_medico},
+                {where:{id:req.params.id}}
             )
-            res.json("updated")
+            res.json("intento")
             } catch (error) {
             res.json( {message: error.message} )
             }

@@ -58,7 +58,7 @@ return (
     <tr>
     <th className='Content' key={index}>{mov.nombre} {mov.apellido}</th>
     <th className='Content' key={index}>{mov.especialidad}</th>
-    <th><Link to={`/edit/${mov.id}`}><h4>Edit</h4></Link></th>
+    <th><Link to={`./edit/${mov.id}`}>Edit</Link></th>
     <th><button onClick={()=>deleteMedico(mov.id)}>X</button></th>
     </tr>
     )

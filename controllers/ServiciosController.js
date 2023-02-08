@@ -13,6 +13,17 @@ export const getAll = async (req,res) =>{
     }
 }
 
+export const getOne = async (req,res) =>{
+    try{
+        const servicio = await ServicioModel.findAll({
+            where: {id:req.params.id}
+        }); 
+        res.json(servicio)
+    } catch(error){
+        res.json ({message :error.message})
+    }
+}
+
 
 //register
 
@@ -46,7 +57,7 @@ export const deleteServicio = async (req, res) => {
 export const updateServicio = async(req,res)=>{
         try{
             await ServicioModel.update(req.body,{ 
-                    where:{ id: req.body.id}}
+                    where:{ id: req.params.id}}
             )
                     res.json("updated")
             } catch (error) {
