@@ -20,7 +20,7 @@ router.use('/especialidad', apiEspecialidadRouter)
 router.use('/turno',CheckToken, apiTurnoRouter)
 router.use('/medico', apiMedicoRouter)
 router.use('/medico_especialidad',CheckToken, apiMedico_EspecialidadRouter)
-router.use('/servicio',CheckToken, apiServicioRouter)
+router.use('/servicio', apiServicioRouter)
 router.use('/mensajeria',CheckToken, apiMensajeriaRouter)
 router.use('/horario',CheckToken, apiHorarioRouter)
 

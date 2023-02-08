@@ -14,10 +14,12 @@ export const getAll = async (req,res) =>{
 }
 
 export const getOne = async (req,res) =>{
+
     try{
-        const servicio = await ServicioModel.findAll({
-            where: {id:req.params.id}
-        }); 
+        const servicio = await ServicioModel.findAll({},
+            {where: {id:req.params.id}}
+            ); 
+   
         res.json(servicio)
     } catch(error){
         res.json ({message :error.message})
@@ -55,8 +57,15 @@ export const deleteServicio = async (req, res) => {
 //editar
 
 export const updateServicio = async(req,res)=>{
+    console.log("revisando data")
+    console.log(req.body.nombre)
+    console.log(req.body.descripcion)
         try{
-            await ServicioModel.update(req.body,{ 
+            await ServicioModel.update({
+                nombre:req.body.nombre,
+                precio:req.body.precio,
+                descripcion:req.body.descripcion
+            },{ 
                     where:{ id: req.params.id}}
             )
                     res.json("updated")
