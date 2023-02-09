@@ -18,7 +18,9 @@ const rol =  JSON.parse(localStorage.getItem("rol"))
     return(
         <div className='nav'>
         <ul>    
-            {rol === 1  && (<li><Link to={'/AvisoLista'}>Avisos</Link></li>)} 
+            {rol === 1  && (<li><Link to={'/AvisoLista'}>Avisos</Link></li>)}
+            {rol === 1  && (<li><Link to={'/CreateTurnoExamen'}>Solicitar Turno Examen</Link></li>)} 
+
             {rol === 3  && (<li><Link to={'/EspecialidadesLista'}>Especialidad</Link></li>)}    
             {rol === 3  && (<li><Link to={'/MedicosLista'}>Medicos</Link></li>)} 
             {rol === 3  && (<li><Link to={'/ServiciosLista'}>Servicios</Link></li>)} 

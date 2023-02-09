@@ -1,6 +1,4 @@
 .App {
-
-   
     justify-content: center;
     align-items: center; 
 
@@ -129,6 +127,12 @@ width: 92%;
     width: 900px;
     
 }
+#largo th{
+    border-bottom: solid black 3px;
+    margin:10px;
+    font-size: 12px;
+}
+
 
 #Login{
   position: absolute; 
