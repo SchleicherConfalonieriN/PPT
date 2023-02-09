@@ -7,9 +7,14 @@ import db from "../db/db.js"
 export const getAllByMedico = async (req,res) =>{
 
     try{
+        const revision  = await db.query("SELECT medicos.id as medicos_id, users.dni from users join medicos on users.dni = medicos.dni where users.id ="+req.userId);
+        const resultante = JSON.parse(JSON.stringify(revision[0][0].medicos_id))
+        
+     
         const turno = await db.query(
-            "SELECT turnos.id, medicos.id as id_medico, medicos.precio, users.Name as n, users.LastName as a, medicos.nombre, medicos.apellido, medicos.nombre, turnos.Date, turnos.Hour FROM turnos join medicos on turnos.id_medico = medicos.id  join users on users.id = turnos.id_paciente where turnos.id_medico ="+ req.userId); 
-        res.json(turno[0])
+            "SELECT turnos.id, medicos.id as id_medico, medicos.precio, users.Name as n, users.LastName as a, medicos.nombre, medicos.apellido, medicos.nombre, turnos.Date, turnos.Hour FROM turnos join medicos on turnos.id_medico = medicos.id  join users on users.id = turnos.id_paciente where turnos.id_medico ="+ resultante); 
+            console.log(turno)
+            res.json(turno[0])
     } catch(error){
         res.json ({message :error.message})
     }

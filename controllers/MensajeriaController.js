@@ -6,9 +6,13 @@ import db from "../db/db.js"
 
 export const getAllMedico = async (req,res) =>{
     try{
+        const revision  = await db.query("SELECT medicos.id as medicos_id, users.dni from users join medicos on users.dni = medicos.dni where users.id ="+req.userId);
+        const resultante = JSON.parse(JSON.stringify(revision[0][0].medicos_id))
+
+
         const mensajeria = await MensajeriaModel.findAll({
             where:{ 
-                id_generador: req.userId,
+                id_generador: resultante,
                 Generador:"medico"
             }
         }); 
