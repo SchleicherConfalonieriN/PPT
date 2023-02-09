@@ -33,7 +33,7 @@ const EditUser = () => {
 return(
 
     <div className='FormContainer'>
-        <h2>Editar user</h2>
+        <h2>Editar datos</h2>
         
     <form onSubmit={edit}>
         <label>Nombre</label>        <br></br>
@@ -54,7 +54,7 @@ return(
        
  
         
-    <button type= "submit">Edit</button>
+    <button type= "submit">Guardar</button>
     </form>
 </div>
 )

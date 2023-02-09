@@ -72,7 +72,7 @@ const EdiServicio = () => {
 return(
 
     <div >
-        <h2>Editar Medico</h2>
+        <h2>Editar servicio</h2>
   
     <form className='FormContainerEdit' onSubmit={edit} >
 

@@ -49,7 +49,7 @@ const Register = () => {
 return (
 
     <div className= "FormContainer">
-        <h2>Register</h2>
+        <h2>Registro</h2>
         <form onSubmit={create}>
         
         <label>Nombre </label>  <br></br>  
