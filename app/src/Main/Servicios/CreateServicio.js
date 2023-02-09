@@ -22,7 +22,7 @@ const Register = () => {
 
 return (
 
-    <div className= "FormContainerEdit">
+    <div className= "FormContainerEdit" id="acomodar">
         <h2>Registar servicio</h2>
         <form onSubmit={create}>
         <label>Nombre</label>    

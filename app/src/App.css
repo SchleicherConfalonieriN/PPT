@@ -132,8 +132,13 @@ width: 92%;
     margin:10px;
     font-size: 12px;
 }
-
-
+#rela{
+    display: flex;
+    flex-direction:row;
+}
+#acomodar{
+    margin-top: 20px;
+}
 #Login{
   position: absolute; 
   left: 0; 

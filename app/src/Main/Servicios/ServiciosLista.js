@@ -44,7 +44,7 @@ const deleteServicio = async (id) => {
 
 
 return (
-
+<div id="rela">
     <div className="ListContainer">
 <h4>Listado de Servicios</h4>
 <tr className='trtitle'>
@@ -66,8 +66,10 @@ return (
     )
     }
 
-    <CreateServicio/>
-      </div>  
+  
+      </div> 
+      <CreateServicio/>
+      </div> 
 )
 
 }
