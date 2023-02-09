@@ -12,8 +12,9 @@ INSERT INTO `especialidades` (`Nombre`, `createdAt`, `updatedAt`) VALUES ('Pedia
 
 ///////////////////USUARIOS CON MEDICOS
 
-INSERT INTO `users` (`id`, `Name`, `LastName`, `Type`, `Email`, `Password`, `createdAt`, `updatedAt`) VALUES (NULL, 'Luis', 'Ramirez', '3', 'l', '1', '2023-02-03 19:00:38.000000', '2023-02-03 19:00:38.000000');
-
+INSERT INTO `users` (`id`, `Name`, `LastName`, `Type`,`tlf`,`dni`, `Email`, `Password`, `createdAt`, `updatedAt`)
+VALUES (NULL, 'Luis', 'Ramirez', '3', 'l134567890', '11111111','luis@gmail.com','12345', 
+'2023-02-03 19:00:38.000000', '2023-02-03 19:00:38.000000');
 
 INSERT INTO `users` (`id`, `Name`, `LastName`, `Type`, `Email`, `Password`, `createdAt`, `updatedAt`) VALUES (NULL, 'Jose', 'Martinez', '2', 'j', '1', '2023-02-03 19:00:38.000000', '2023-02-03 19:00:38.000000');
 

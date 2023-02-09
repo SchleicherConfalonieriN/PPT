@@ -39,7 +39,7 @@ const create = async (e) =>{
             'user-token': localStorage.getItem("apiData")
             }
      }
-    ).then(res => console.log(res))/*.then(window.location.assign('http://localhost:3000/TurnoLista'))*/
+    ).then(window.location.assign('http://localhost:3000/TurnoELista'))
 }
 
 return (

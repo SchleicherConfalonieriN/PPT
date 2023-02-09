@@ -137,11 +137,13 @@ const EditMedico = () => {
 
         if(espe !==0) {   
         registerrelacion();
+        window.location.assign('http://localhost:3000/MedicosLista/edit/'+id)
         }
 
         if(conn !==0){
         cambiarcon() 
         eliminarcon()
+        window.location.assign('http://localhost:3000/MedicosLista/edit/'+id)
         }
     }
     const cambiarcon = async () =>{

@@ -15,11 +15,18 @@ const UserModel = db.define('users',{
     LastName: {type: DataTypes.STRING,   
         allowNull: false,
     },
+
     Type: {type: DataTypes.STRING,   
         allowNull: false,
     },
     Email: {type: DataTypes.STRING,   
         allowNull: false,
+        unique: true
+    },
+    dni: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+        unique: true
     },
     Password: {type: DataTypes.STRING(500),
         allowNull: false,

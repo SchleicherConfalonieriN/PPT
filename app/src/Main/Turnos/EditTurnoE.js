@@ -43,7 +43,7 @@ const EditTurnoE = () => {
        await axios.put(URL + id,{Date:date,Hour:hora},{
             headers: {
                 'user-token': localStorage.getItem("apiData")}
-             }).then(window.location.assign('http://localhost:3000/EspecialidadesLista'));
+             }).then(window.location.assign('http://localhost:3000/TurnoELista'))
           
     }
 

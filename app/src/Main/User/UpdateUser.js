@@ -12,7 +12,7 @@ const EditUser = () => {
     
 
 
-     // const [dni,SetDni] = useState('')
+     const [dni,SetDni] = useState('')
      const [nombre,setNombre] = useState('')
      const [apellido,SetApellido] = useState('')
     // const [rol,SetRol] = useState('1')
@@ -23,7 +23,7 @@ const EditUser = () => {
     const edit = async (e) =>{
        
         e.preventDefault()
-       await axios.put(URL,{Name:nombre,LastName: apellido,Email:email, Password:password,Type:rol},{
+       await axios.put(URL,{Name:nombre,LastName: apellido,Email:email,dni:dni, Password:password,Type:rol},{
             headers: {
                 'user-token': localStorage.getItem("apiData")}
              }).then((response) => {console.log(response); });
@@ -45,7 +45,10 @@ return(
         <label>Email</label>            <br></br>
         <input type={"text"} value={email} onChange={(e)=> SetEmail(e.target.value)}></input>
         <br></br>
-        <label>Password</label>           <br></br> 
+        <label>Dni</label>            <br></br>
+        <input type={"text"} value={dni} onChange={(e)=> SetDni(e.target.value)}></input>
+        <br></br>
+        <label>Password</label> <br></br> 
         <input type={"text"} value={password} onChange={(e)=> SetPassword(e.target.value)}></input>
         <br></br>  
        

@@ -2,7 +2,6 @@ import axios from 'axios'
 import {useState,useEffect} from 'react'
 import React from 'react'
 import {Link} from 'react-router-dom'
-import { and } from 'sequelize';
 
 const URL = 'http://localhost:8000/api/mensajeria/';
 const rol =  JSON.parse(localStorage.getItem("rol"))
@@ -56,18 +55,40 @@ const deleteMensajes = async (id) => {
     getMensajes()
  }
 
-const mensaje  = (a,b) => {
 
-if(a==="delete"  && b==="servicio")
+function men (mov) {
+
+if (mov.Generador==="servicio" && mov.Tipo === "delete"){
+
+    return <th className='Content' >Su turno para {mov.medico} del dia {mov.DateOld} a las {mov.HourOld}h a sido dado de baja. Porfavor solicitar un turno nuevo</th>
+
+}
+
+if (mov.Generador==="servicio" && mov.Tipo === "update"){
+
+return <th className='Content'>Su turno para {mov.medico} del dia {mov.DateOld} a las {mov.HourOld}h a sido cambiado para el dia {mov.DateNew} a las {mov.HourNew}h</th>
+
+}
+
+if (mov.Generador==="medico" && mov.Tipo === "update"){
+
+    return <th className='Content'>Su turno para {mov.medico} del dia {mov.DateOld} a las {mov.HourOld}h a sido cambiado para el dia {mov.DateNew} a las {mov.HourNew}h</th>
+    
+}
+if (mov.Generador==="medico" && mov.Tipo === "delete"){
+
+    return <th className='Content' >Su turno con el medico {mov.medico} del dia {mov.DateOld} a las {mov.HourOld}h a sido dado de baja. Porfavor solicitar un turno nuevo</th>
+    
+}
 
 
-return (<h1>FUNCIONA</h1>)
+
 }
 
 
 
 
-
+ 
 
 return (
 
@@ -82,19 +103,14 @@ return (
     
  rol === 1 &&   
     mensajes.map((mov,index) =>
-    <tr  id ="largo">
+
+<tr  id ="largo">
 
 
 
-    {mov.Tipo == "update"  && 
-    <th className='Content' key={index}>Su turno con el medico {mov.medico} del dia {mov.DateOld} a las {mov.HourOld}h a sido cambiado para el dia {mov.DateNew} a las {mov.HourNew}h</th>
-    }
-    {(mov.Tipo == "delete")  &&
-
-     <th className='Content' key={index}>Su turno con el medico {mov.medico} del dia {mov.DateOld} a las {mov.HourOld}h a sido dado de baja porfavor solicitar el turno nuevamente</th>
-    
-    }
-    
+  
+  
+  {men(mov)}
     </tr>
     )
     }

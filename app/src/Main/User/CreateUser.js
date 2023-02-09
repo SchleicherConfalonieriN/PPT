@@ -12,32 +12,37 @@ const Register = () => {
    // const [rol,SetRol] = useState('1')
     const [email,SetEmail] = useState('')
     const [password,SetPassword] = useState('');
+    const [dni,SetDni] = useState('');
     const [type,SetType] = useState('');  
     const rol =  JSON.parse(localStorage.getItem("rol"))
 
     const create = async (e) =>{
         e.preventDefault()
-        if (type === 0 && rol === 3){
-            alert("Introducir tipo de usuario a agregar");}
-        else{
+        if(type == 2){
+            medico()
+            }
 
-        if(type === 0){
-        axios.post(URL,{Name:nombre,LastName: apellido,Email:email, Password:password,Type:1})
+
+        if(type == 0){
+        await axios.post(URL,{Name:nombre,LastName:apellido, Email:email,dni:dni, Password:password,Type:1})
         .then(window.location.assign('http://localhost:3000/'));
-        }else{
-            axios.post(URL,{Name:nombre,LastName: apellido,Email:email, Password:password,Type:type})
+        }
+
+
+        if(type == 3){
+        await  axios.post(URL,{Name:nombre,LastName: apellido,Email:email,dni:dni, Password:password,Type:type})
             .then(window.location.assign('http://localhost:3000/Home'));
 
         }
-        if(type ===2){
-            axios.post(URL,
-                {Name:nombre,LastName: apellido,Email:email, Password:password,Type:2}
-                ).then(axios.post(URL,
-                    {nombre:nombre,apellido: apellido,precio:5000,email:email, Password:password,Type:2})
-            )   
-        }
+      
+    async function medico () {
+        await axios.post(URL,
+            {Name:nombre,LastName: apellido,Type:type,Email:email,dni:dni, Password:password}
+            ).then((res) => console.log(res)).then(axios.post(URL1,
+                {nombre:nombre,apellido: apellido, precio:5000,dni:dni, Password:password,Type:2})
+        ).then((res) => console.log(res)).then(window.location.assign('http://localhost:3000/Home')); 
+    }
         
-        }
 
     }
 
@@ -55,6 +60,9 @@ return (
         <br></br>
         <label>Email    </label>  <br></br>  
         <input type={"text"} value={email} onChange={(e)=> SetEmail(e.target.value)}></input>
+        <br></br>
+        <label>Dni    </label>  <br></br>  
+        <input type={"number"} value={dni} onChange={(e)=> SetDni(e.target.value)}></input>
         <br></br>
         <label>Password  </label><br></br>    
         <input type={"text"} value={password} onChange={(e)=> SetPassword(e.target.value)}></input>

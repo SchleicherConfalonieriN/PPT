@@ -88,7 +88,7 @@ return (
     {turno.map((mov,index) =>
     <tr>
     <th className='Content' key={index}>
-        {rol===1 && mov.nombre}  {rol===2 && mov.n}  {rol===1 && mov.apellidoe}  {rol===2 && mov.a}</th>
+        {rol===1 && mov.nombre}  {rol===2 && mov.n}  {rol===1 && mov.apellido}  {rol===2 && mov.a}</th>
     <th className='Content' key={index}>{mov.Date}</th>
     <th className='Content' key={index}>{mov.Hour}h</th>
     <th><Link to={`./edit/${mov.id}`}>Edit</Link></th>

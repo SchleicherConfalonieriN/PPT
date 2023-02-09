@@ -38,7 +38,7 @@ const getEspecialidad = async () =>{
     
     const [hora,setHora] = useState('')
     const [espe,setEspe] = useState('0')
-    const [id_medico,setIdMedico] = useState('')
+    const [idi,setIdMedico] = useState('')
     const [turnoh, setTurnoH] = useState([0])
     useEffect (  () => {
 
@@ -67,14 +67,14 @@ const getEspecialidad = async () =>{
             }
           }
         )
-          
-    
+          console.log("estos son los medicos")
+            console.log(res.data)
           setMedicos(res.data);
       }
     const create = async (e) =>{
         e.preventDefault()
         console.log(hora)
-        axios.post(URL,{ Date:date, id_medico:id_medico, Hour:hora},{
+        axios.post(URL,{ Date:date, id_medico:idi, Hour:hora},{
             headers: {
                 'user-token': localStorage.getItem("apiData")
                 }
@@ -86,7 +86,7 @@ const getEspecialidad = async () =>{
     const datefun = async (e) =>{
      
 
-        const res =  await axios.post(URL4, {Date:date, id_medico:id_medico},{
+        const res =  await axios.post(URL4, {Date:date, id_medico:idi},{
             headers: {
             'user-token': localStorage.getItem("apiData")
             }
@@ -124,10 +124,15 @@ return (
 
   {espe !== "0" && 
     <div>
-        <select onChange={(e)=> setIdMedico(e.target.value)}>
+        <select  onChange={(e)=> {
+            setIdMedico(e.target.value)
+            console.log("ESTE ES EL ID SELECIONADO")
+            console.log(idi)
+            }
+            }>
             <option>------------</option>
             {medicos.filter((es) => es.Nombre == espe).map((m,key) =>
-                <option value={m.id}>{m.nombre} {m.apellido}</option>
+                <option value={m.medico_id}>{m.nombre} {m.apellido}</option>
             )
             }
         </select>
