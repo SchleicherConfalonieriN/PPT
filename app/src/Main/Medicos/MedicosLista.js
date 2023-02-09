@@ -47,11 +47,11 @@ return (
 
     <div className="ListContainer">
 <h4>Listado de Medicos</h4>
-<tr className='ListTitle'>
+<tr className='trtitle'>
 <th>Nombre</th>
-<th>Especialidad</th>
 <th></th>
-<th></th>
+<th>Editar</th>
+<th>Eliminar</th>
 </tr>
 
     {medico.map((mov,index) =>

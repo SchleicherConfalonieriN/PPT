@@ -11,6 +11,7 @@ const Home = () => {
 return (
 
     <div id= "bt2">
+        
         <button onClick={()=>Hsession()}>Home</button>  
     </div>
     )

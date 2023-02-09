@@ -48,7 +48,7 @@ return (
 
     <div className="ListContainer">
 <h4>Listado de consultorio</h4>
-<tr className='ListTitle'>
+<tr className='trtitle' id="con">
 <th>Numero</th>
 <th></th>
 <th></th>
@@ -57,7 +57,7 @@ return (
     {consultorio.map((mov,index) =>
     <tr>
     <th className='Content' key={index}>{mov.Numero}</th>
-    <th><Link to={`./edit/${mov.id}`}><h4>Edit</h4></Link></th>
+    <th><Link to={`./edit/${mov.id}`}>Edit</Link></th>
     <th><button onClick={()=>deleteconsultorio(mov.id)}>X</button></th>
     </tr>
     )

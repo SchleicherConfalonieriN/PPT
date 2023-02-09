@@ -20,7 +20,7 @@ const EditEspecialidad = () => {
        await axios.put(URL + id,{Nombre:nombre},{
             headers: {
                 'user-token': localStorage.getItem("apiData")}
-             }).then(window.location.assign('http://localhost:3000/EspecialidadesLista'));;
+             }).then(window.location.assign('http://localhost:3000/EspecialidadesLista'));
           
     }
 

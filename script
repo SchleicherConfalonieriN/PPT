@@ -102,3 +102,22 @@ INSERT into mensajeria(id_paciente,id_medico,medico,paciente,DateOld,DateNew,Hou
 VALUES (new.id_paciente,new.id_medico,@medico,@paciente,@dateold,@datenew,@hourold,@hournew,0,"update"); 
 END; 
 //
+
+DELIMITER //
+Create TRIGGER delete_turno
+after delete
+on turnos
+for each row
+BEGIN 
+SET @nombre = (select nombre from medicos where id = old.id_medico); 
+SET @apellido = (select apellido from medicos where id = old.id_medico); 
+set @medico = CONCAT(@nombre," ",@apellido); 
+set @nombre_paciente = (select Name from users where id = old.id_paciente); 
+set @apellido_paciente = (select LastName from users where id = old.id_paciente); 
+set @paciente = CONCAT(@nombre_paciente," ",@apellido_paciente); 
+set @dateold = old.Date; 
+set @hourold = old.Hour;
+
+INSERT into mensajeria(id_paciente,id_medico,medico,paciente,DateOld,DateNew,HourOld,HourNew,Leido,Tipo) 
+VALUES (old.id_paciente,old.id_medico,@medico,@paciente,@dateold,null,@hourold,null,0,"delete"); 
+END//

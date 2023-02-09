@@ -49,21 +49,22 @@ return (
 
     <div className="ListContainer">
 <h4>Listado de Turnos</h4>
-<tr className='ListTitle'>
+<tr className='trtitle'>
 <th>Nombre</th>
 <th>precio</th>
-<th>id del doctor</th>
 <th>fecha</th>
-<th></th>
+<th>hora</th>
+<th>Editar</th>
+<th>Eliminar</th>
 </tr>
 
     {turno.map((mov,index) =>
     <tr>
     <th className='Content' key={index}>{mov.nombre} {mov.apellido}</th>
     <th className='Content' key={index}>{mov.precio}</th>
-    <th className='Content' key={index}>{mov.id_medico}</th>
     <th className='Content' key={index}>{mov.Date}</th>
-    <th><Link to={`/edit/${mov.id}`}><h4>Edit</h4></Link></th>
+    <th className='Content' key={index}>{mov.Hour}h</th>
+    <th><Link to={`/edit/${mov.id}`}>Edit</Link></th>
     <th><button onClick={()=>deleteTurno(mov.id)}>X</button></th>
     </tr>
     )

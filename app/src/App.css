@@ -109,7 +109,12 @@ ul{
 width: 92%;
 }
 
-
+#con{
+    align-self: center;
+    justify-content: center;
+    text-align: center;
+    
+}
 #home{
     display: flex;
     width: 80%;
@@ -119,6 +124,10 @@ width: 92%;
 #c{
     display: flex;
    
+}
+#largo{
+    width: 900px;
+    
 }
 
 #Login{

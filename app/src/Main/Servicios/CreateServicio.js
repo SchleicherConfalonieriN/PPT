@@ -22,8 +22,8 @@ const Register = () => {
 
 return (
 
-    <div className= "PrimaryContainer">
-        <h2>Register</h2>
+    <div className= "FormContainerEdit">
+        <h2>Registar servicio</h2>
         <form onSubmit={create}>
         <label>Nombre</label>    
         <input type={"text"} value={nombre} onChange={(e)=> setNombre(e.target.value)}></input>
