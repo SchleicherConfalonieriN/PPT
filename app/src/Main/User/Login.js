@@ -13,7 +13,8 @@ const Login = () =>{
     const create = async (e) =>{
         e.preventDefault()
         axios.post(URL,{Email:email, Password:password})
-        .then((res) => {     
+        .then((res) => { 
+            console.log(res.data)    
             localStorage.setItem("apiData",res.data.token)
             localStorage.setItem("rol",res.data.rol)
       }).then(window.location.assign('http://localhost:3000/home'));
