@@ -3,7 +3,7 @@ import {DataTypes} from "sequelize";
 
 
 
-const TurnoModel = db.define('turnos',{
+const TurnoSModel = db.define('turno_S',{
     id: {
         type: DataTypes.INTEGER,
         autoIncrement: true,
@@ -12,7 +12,7 @@ const TurnoModel = db.define('turnos',{
     id_paciente: {
         type: DataTypes.INTEGER
     },
-    id_medico: {
+    id_servicio: {
     type: DataTypes.INTEGER
     },
     Date: {
@@ -20,9 +20,8 @@ const TurnoModel = db.define('turnos',{
     },
     Hour: {
         type: DataTypes.INTEGER
-    }
-  
+    }    
 }
 );
-await TurnoModel.sync(); // if the table dont exist sync  create  table
-export default TurnoModel
+await TurnoSModel.sync(); // if the table dont exist sync  create  table
+export default TurnoSModel

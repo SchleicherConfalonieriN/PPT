@@ -12,7 +12,7 @@ const CerrarSession = () => {
 return (
 
     <div id= "bt1">
-        <button onClick={()=>Csession()}>Cerrar Sesion</button>  
+        <button onClick={()=>Csession()}><h4>Cerrar sesion</h4></button>  
     </div>
     )
 }

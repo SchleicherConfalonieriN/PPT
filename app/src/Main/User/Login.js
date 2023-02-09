@@ -36,8 +36,8 @@ return (
         </select>
         <br></br>
         <div className='Formbtn'>
-        <input type={"submit"}></input>
-        <Link  to={"/Register"}>Registrarse</Link>
+        <button>Ingresar</button>
+        <Link  to={"/Register"}><button>Registrarse</button></Link>
         </div>
         </form>
      </div>

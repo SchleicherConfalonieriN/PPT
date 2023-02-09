@@ -12,7 +12,7 @@ return (
 
     <div id= "bt2">
         
-        <button onClick={()=>Hsession()}>Home</button>  
+        <button onClick={()=>Hsession()}><h4>Inicio</h4></button>  
     </div>
     )
 }

@@ -15,12 +15,15 @@ import TurnoLista from "../Turnos/TurnoList"
 //EDITAR
 import EditEspecialidad from '../Especialidades/EditarEspecialidades';
 import EditConsultorio from '../Consultorio/EditConsultorio';
+import EditTurnoE from '../Turnos/EditTurnoE'
+import EditTurno from '../Turnos/EditTurno'
 
 import {Route, Routes } from 'react-router-dom';
 import EditMedico from "../Medicos/EditMedico";
 import EditServicio from "../Servicios/EditServicio";
 import AvisoLista from "../Avisos/Avisos";
 import TurnoServicio from "../Turnos/TurnoServicio";
+import TurnoELista from "../Turnos/TurnoELista";
 
 const Home = () => {
 
@@ -33,7 +36,6 @@ const rol =  JSON.parse(localStorage.getItem("rol"))
         <Route path='/' element={ <Login/>} />
         <Route path='/Register' element={ <Register/>} />
         <Route path='/EditarDatos' element={ <UpdateUser/>} />
-        <Route path='/Register' element={ <Register/>} />
         <Route path='/TurnoLista' element={ <TurnoLista/>} />
         <Route path='/MedicosLista' element={ <MedicosLista/>} />
         <Route path='/MedicosLista/edit/:id' element={<EditMedico/>}/>
@@ -45,6 +47,9 @@ const rol =  JSON.parse(localStorage.getItem("rol"))
         <Route path='/ConsultorioLista/edit/:id' element={ <EditConsultorio/>} />
         <Route path='/CreateTurno' element={ <CreateTurno/>} />
         <Route path='/AvisoLista' element={<AvisoLista/>}></Route>
+        <Route path='/TurnoELista' element={<TurnoELista/>}></Route>
+        <Route path="/TurnoELista/edit/:id" element={<EditTurnoE/>}></Route>
+        <Route path="/TurnoLista/edit/:id" element={<EditTurno/>}></Route>
         <Route path='/CreateTurnoExamen' element={<TurnoServicio/>}></Route>
     </Routes>  
 

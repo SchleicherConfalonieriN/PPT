@@ -3,7 +3,7 @@ import {DataTypes} from "sequelize";
 
 
 
-const MensajeriaModel = db.define('mensajeria',{
+const MensajeriaSModel = db.define('mensajerias',{
     id: {
         type: DataTypes.INTEGER,
         autoIncrement: true,
@@ -12,10 +12,10 @@ const MensajeriaModel = db.define('mensajeria',{
     id_paciente: {
         type: DataTypes.INTEGER
     },
-    id_generador: {
+    id_servicio: {
     type: DataTypes.INTEGER
     },
-    medico: {
+    servicio: {
         type: DataTypes.STRING
     },
     paciente: {
@@ -39,11 +39,8 @@ const MensajeriaModel = db.define('mensajeria',{
     },
     Tipo: {
         type: DataTypes.STRING
-    },
-    Generador: {
-        type: DataTypes.STRING
-    }     
+    }    
 }
 );
-await MensajeriaModel.sync(); // if the table dont exist sync  create  table
-export default MensajeriaModel
+await MensajeriaSModel.sync(); // if the table dont exist sync  create  table
+export default MensajeriaSModel

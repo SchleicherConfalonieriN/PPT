@@ -11,7 +11,8 @@ import apiServicioRouter from './ServicioRoutes.js';
 import apiHorarioRouter from './HorarioRoutes.js';
 import apiMensajeriaRouter from './MensajeriaRoutes.js';
 import apiMedico_EspecialidadRouter from './Medico_EspecialidadRoutes.js';
-
+import apiMensajeriaSRouter from './MensajeriaSRoutes.js';
+import apiTurnoSRouter from './TurnoSRoutes.js';
 
 // ESTE DE AQUI TENEMOS QUE CMABIARLO POR LOS CONTROLADORES APROPIADOS router.use('/transaction', CheckToken,apiTransactionRouter);
 router.use('/user', apiUserRouter);
@@ -22,6 +23,8 @@ router.use('/medico', apiMedicoRouter)
 router.use('/medico_especialidad',CheckToken, apiMedico_EspecialidadRouter)
 router.use('/servicio', apiServicioRouter)
 router.use('/mensajeria',CheckToken, apiMensajeriaRouter)
+router.use('/mensajeriaS',CheckToken, apiMensajeriaSRouter)
+router.use('/turnoS',CheckToken, apiTurnoSRouter)
 router.use('/horario',CheckToken, apiHorarioRouter)
 
 export default router;

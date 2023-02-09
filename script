@@ -98,12 +98,11 @@ set @dateold = old.Date;
 set @hournew = new.Hour; 
 set @hourold = old.Hour;
 
-INSERT into mensajeria(id_paciente,id_medico,medico,paciente,DateOld,DateNew,HourOld,HourNew,Leido,Tipo) 
-VALUES (new.id_paciente,new.id_medico,@medico,@paciente,@dateold,@datenew,@hourold,@hournew,0,"update"); 
+INSERT into mensajeria(id_paciente,id_generador,medico,paciente,DateOld,DateNew,HourOld,HourNew,Leido,Tipo,Generador) 
+VALUES (new.id_paciente,new.id_medico,@medico,@paciente,@dateold,@datenew,@hourold,@hournew,0,"update","medico"); 
 END; 
 //
 
-DELIMITER //
 Create TRIGGER delete_turno
 after delete
 on turnos
@@ -118,6 +117,52 @@ set @paciente = CONCAT(@nombre_paciente," ",@apellido_paciente);
 set @dateold = old.Date; 
 set @hourold = old.Hour;
 
-INSERT into mensajeria(id_paciente,id_medico,medico,paciente,DateOld,DateNew,HourOld,HourNew,Leido,Tipo) 
-VALUES (old.id_paciente,old.id_medico,@medico,@paciente,@dateold,null,@hourold,null,0,"delete"); 
+INSERT into mensajeria(id_paciente,id_generador,medico,paciente,DateOld,DateNew,HourOld,HourNew,Leido,Tipo,Generador) 
+VALUES (old.id_paciente,old.id_medico,@medico,@paciente,@dateold,null,@hourold,null,0,"delete","medico"); 
 END//
+
+
+
+###triggers para los servicios
+
+
+DELIMITER //
+CREATE TRIGGER turno_S_update 
+BEFORE UPDATE 
+on turno_S 
+for each ROW 
+BEGIN 
+SET @nombre = (select nombre from servicios where id = new.id_servicio); 
+set @nombre_paciente = (select Name from users where id = new.id_paciente); 
+set @apellido_paciente = (select LastName from users where id = new.id_paciente); 
+set @paciente = CONCAT(@nombre_paciente," ",@apellido_paciente); 
+set @datenew = new.Date; 
+set @dateold = old.Date;
+set @hournew = new.Hour; 
+set @hourold = old.Hour;
+
+INSERT into mensajeria(id_paciente,id_generador,medico,paciente,DateOld,DateNew,HourOld,HourNew,Leido,Tipo,Generador) 
+VALUES (new.id_paciente,new.id_servicio,@nombre,@paciente,@dateold,@datenew,@hourold,@hournew,0,"update","servicio"); 
+END; 
+//
+
+
+DELIMITER //
+CREATE TRIGGER turno_S_delete 
+after delete 
+on turno_S 
+for each ROW 
+BEGIN 
+SET @nombre = (select nombre from servicios where id = old.id_servicio); 
+set @nombre_paciente = (select Name from users where id = old.id_paciente); 
+set @apellido_paciente = (select LastName from users where id = old.id_paciente); 
+set @paciente = CONCAT(@nombre_paciente," ",@apellido_paciente); 
+ 
+set @dateold = old.Date;
+
+set @hourold = old.Hour;
+
+INSERT into mensajeria(id_paciente,id_generador,medico,paciente,DateOld,DateNew,HourOld,HourNew,Leido,Tipo,Generador) 
+VALUES (old.id_paciente,old.id_servicio,@nombre,@paciente,@dateold,null,@hourold,null,0,"delete","servicio"); 
+END; 
+//

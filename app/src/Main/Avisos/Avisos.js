@@ -2,6 +2,7 @@ import axios from 'axios'
 import {useState,useEffect} from 'react'
 import React from 'react'
 import {Link} from 'react-router-dom'
+import { and } from 'sequelize';
 
 const URL = 'http://localhost:8000/api/mensajeria/';
 const rol =  JSON.parse(localStorage.getItem("rol"))
@@ -55,29 +56,70 @@ const deleteMensajes = async (id) => {
     getMensajes()
  }
 
+const mensaje  = (a,b) => {
+
+if(a==="delete"  && b==="servicio")
+
+
+return (<h1>FUNCIONA</h1>)
+}
+
+
+
+
+
 
 return (
 
     <div className="ListContainer">
-<h4>Avisos</h4>
 <tr className='trtitle'>
-<th  id ="largo">Mensaje</th>
+<th  id ="largo">Aviso</th>
 
 
 </tr>
 
-    {mensajes.map((mov,index) =>
+    {
+    
+ rol === 1 &&   
+    mensajes.map((mov,index) =>
     <tr  id ="largo">
+
+
+
     {mov.Tipo == "update"  && 
     <th className='Content' key={index}>Su turno con el medico {mov.medico} del dia {mov.DateOld} a las {mov.HourOld}h a sido cambiado para el dia {mov.DateNew} a las {mov.HourNew}h</th>
     }
-    {mov.Tipo == "delete"  && 
-    <th className='Content' key={index}>Su turno con el medico {mov.medico} del dia {mov.DateOld} a las {mov.HourOld}h a sido dado de baja porfavor solicitar el turno nuevamente</th>
+    {(mov.Tipo == "delete")  &&
+
+     <th className='Content' key={index}>Su turno con el medico {mov.medico} del dia {mov.DateOld} a las {mov.HourOld}h a sido dado de baja porfavor solicitar el turno nuevamente</th>
+    
     }
-   
+    
     </tr>
     )
     }
+
+{
+    
+    rol === 2 &&   
+       mensajes.map((mov,index) =>
+       <tr  id ="largo">
+   
+   
+   
+       {mov.Tipo == "update"  && 
+       <th className='Content' key={index}>Su turno del dia {mov.DateOld} a las {mov.HourOld}h a sido cambiado para al dia {mov.DateNew} a las {mov.HourNew}h</th>
+       }
+       {mov.Tipo == "delete"  && 
+       <th className='Content' key={index}>Su turno del dia {mov.DateOld} a las {mov.HourOld}h a sido dado de baja</th>
+       }
+       
+       </tr>
+       )
+       }
+
+
+
 
    
       </div>  

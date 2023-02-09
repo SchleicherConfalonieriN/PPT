@@ -1,4 +1,4 @@
-import MensajeriaModel from "../models/mensajeriaModel.js"
+import MensajeriaSModel from "../models/MensajeriaSModel.js"
 import db from "../db/db.js"
 
 
@@ -6,11 +6,9 @@ import db from "../db/db.js"
 
 export const getAllMedico = async (req,res) =>{
     try{
-        const mensajeria = await MensajeriaModel.findAll({
+        const mensajeria = await MensajeriaSModel.findAll({
             where:{ 
-                id_generador: req.userId,
-                Generador:"medico"
-            }
+                id_medico: req.userId}
         }); 
         res.json(mensajeria)
     } catch(error){
@@ -20,7 +18,7 @@ export const getAllMedico = async (req,res) =>{
 
 export const getAllPaciente = async (req,res) =>{
     try{
-        const mensajeria = await MensajeriaModel.findAll({
+        const mensajeria = await MensajeriaSModel.findAll({
             where:{ 
                 id_paciente: req.userId}
         }); 
@@ -34,7 +32,7 @@ export const getAllPaciente = async (req,res) =>{
 
 export const deleteMensaje = async (req, res) => {
     try {
-        await mensajeriaModel.destroy({ 
+        await MensajeriaSModel.destroy({ 
             where: {id:req.params.id}
         })
         res.json({
